@@ -44,6 +44,14 @@ Token* Lexer::GetNextToken()
 	{
 		tok = new Token(TokenType::PLUS, input[parseIndex]);
 	}
+	else if (isSub(input[parseIndex]))
+	{
+		tok = new Token(TokenType::SUB, input[parseIndex]);
+	}
+	else if (isMult(input[parseIndex]))
+	{
+		tok = new Token(TokenType::MULT, input[parseIndex]);
+	}
 	else if (isExpr(input[parseIndex]))
 	{
 		tok = new Token(TokenType::EXPR, '\0');
@@ -79,6 +87,22 @@ bool Lexer::isInt(char in)
 bool Lexer::isPlus(char in)
 {
 	if (in == '+')
+		return true;
+
+	return false;
+}
+
+bool Lexer::isSub(char in)
+{
+	if (in == '-')
+		return true;
+
+	return false;
+}
+
+bool Lexer::isMult(char in)
+{
+	if (in == '*')
 		return true;
 
 	return false;

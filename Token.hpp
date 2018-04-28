@@ -9,6 +9,8 @@ enum TokenType
 {
 	INTEGER,
 	PLUS,
+	SUB,
+	MULT,
 	EXPR,
 	END,
 	ERROR
@@ -37,6 +39,12 @@ struct Token
 			break;
 		case TokenType::PLUS:
 			val = "PLUS";
+			break;
+		case TokenType::SUB:
+			val = "SUB";
+			break;
+		case TokenType::MULT:
+			val = "MULT";
 			break;
 		case TokenType::EXPR:
 			val = "EXPR";

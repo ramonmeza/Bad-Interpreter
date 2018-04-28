@@ -7,7 +7,7 @@ int main(int argc, char* argv[])
 {
 	Interpreter interpreter;
 
-	interpreter.Interpret("12+2;");
+	interpreter.Interpret("12+2;12-2;12*2;");
 
 	system("PAUSE");
 

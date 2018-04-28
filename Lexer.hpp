@@ -29,6 +29,8 @@ private:
 	// Helper functions
 	bool isInt(char in);
 	bool isPlus(char in);
+	bool isSub(char in);
+	bool isMult(char in);
 	bool isExpr(char in);
 	bool isEND(char in);
 };
