@@ -1,5 +1,7 @@
 #include "Interpreter.hpp"
 
+#include <iostream>
+
 Interpreter::Interpreter()
 {
 }
@@ -8,7 +10,7 @@ Interpreter::~Interpreter()
 {
 }
 
-void Interpreter::Interpret(std::string input)
+void Interpreter::Interpret(const std::string &input)
 {
 	// Lex the input
 	lex.Lex(input);
@@ -22,7 +24,7 @@ void Interpreter::Interpret(std::string input)
 		if ((*itr)->type != TokenType::END)
 		{
 			// Get a single expression
-			std::vector<Token*> expr;
+			std::vector<Token *> expr;
 			while ((*itr)->type != TokenType::EXPR)
 			{
 				expr.push_back((*itr));
@@ -37,8 +39,8 @@ void Interpreter::Interpret(std::string input)
 
 			// Get LHS
 			while ((*e)->type != TokenType::PLUS &&
-				(*e)->type != TokenType::SUB &&
-				(*e)->type != TokenType::MULT)
+				   (*e)->type != TokenType::SUB &&
+				   (*e)->type != TokenType::MULT)
 			{
 				LHS *= 10;
 				LHS += (*e)->value - '0';

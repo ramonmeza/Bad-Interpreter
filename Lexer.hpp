@@ -1,6 +1,5 @@
 #ifndef LEXER_HPP
 #define LEXER_HPP
-#pragma once
 
 #include <iostream>
 #include <string>
@@ -14,7 +13,7 @@ public:
 	Lexer();
 	~Lexer();
 
-	void Lex(std::string in);	// Starts the lexer
+	void Lex(const std::string& in);	// Starts the lexer
 
 	void ShowTokens();	// Prints out all tokens
 	std::vector<Token*>& GetTokens() { return tokens; }	// Returns a reference to the tokens

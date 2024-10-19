@@ -1,6 +1,6 @@
 #include "Lexer.hpp"
 
-Lexer::Lexer()
+Lexer::Lexer() : parseIndex(0)
 {
 }
 
@@ -17,11 +17,12 @@ void Lexer::ShowTokens()
 	}
 }
 
-void Lexer::Lex(std::string in)
+void Lexer::Lex(const std::string &in)
 {
+	parseIndex = 0;
 	input = in;
 
-	Token* tok;
+	Token *tok;
 
 	do
 	{
@@ -30,10 +31,10 @@ void Lexer::Lex(std::string in)
 	} while (tok->type != TokenType::END);
 }
 
-Token* Lexer::GetNextToken()
+Token *Lexer::GetNextToken()
 {
 	// Create new token
-	Token* tok;
+	Token *tok;
 
 	// Decypher input into a token
 	if (isInt(input[parseIndex]))
@@ -61,7 +62,7 @@ Token* Lexer::GetNextToken()
 		// syntax error
 		tok = new Token(TokenType::ERROR, '\0');
 	}
-	
+
 	if (isEND(input[parseIndex]))
 	{
 		tok = new Token(TokenType::END, '\0');

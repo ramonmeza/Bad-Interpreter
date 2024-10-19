@@ -1,6 +1,5 @@
 #ifndef INTERPRETER_HPP
 #define INTERPRETER_HPP
-#pragma once
 
 #include <string>
 #include "Lexer.hpp"
@@ -11,7 +10,7 @@ public:
 	Interpreter();
 	~Interpreter();
 
-	void Interpret(std::string input);
+	void Interpret(const std::string& input);
 
 private:
 	Lexer lex;
